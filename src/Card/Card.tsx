@@ -1,11 +1,29 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
+import {Bee} from '../SquadIcon/Bee';
+import {Octopus} from '../SquadIcon/Octopus';
+
+export type SquadType =
+  | 'bee'
+  | 'blackhawk'
+  | 'chipmunk'
+  | 'fox'
+  | 'joker'
+  | 'octopus'
+  | 'panda'
+  | 'platypus'
+  | 'quokka'
+  | 'raccoon'
+  | 'rooster'
+  | 'squirrel'
+  | 'suricate'
+  | 'weasel';
 
 export type User = {
   name: string;
   fullname: string;
   avatar: string;
-  squad: string;
+  squad: SquadType;
   position: string;
   squadMembers: string[];
 };
@@ -17,8 +35,9 @@ type CardProps = {
 export const Card: FC<{user: User}> = ({user}: CardProps) => (
   <Container>
     <PhotoContainer>
-      <SquadBadge>
-        <SquadImage />
+      <SquadBadge squad={user.squad}>
+        {user.squad === 'octopus' && <Octopus fill="white" width="70%" />}
+        {user.squad === 'bee' && <Bee fill="black" width="70%" />}
       </SquadBadge>
       <Photo src={user.avatar} onError={(event) => (event.currentTarget.src = 'http://placekitten.com/400/400')} />
     </PhotoContainer>
@@ -57,16 +76,14 @@ const Name = styled.div`
   padding: 2mm;
 `;
 
-const SquadBadge = styled.div`
-  width: 5mm;
-  height: 5mm;
+const SquadBadge = styled.div<{squad: SquadType}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15mm;
+  height: 15mm;
   position: absolute;
-  transform: translate(40mm, 30mm);
-  background-color: red;
-`;
-
-const SquadImage = styled.img`
-  width: 5mm;
-  height: 5mm;
-  object-fit: cover;
+  transform: translate(35mm, 25mm);
+  border-radius: 10mm;
+  background-color: ${(props) => props.theme.squad[props.squad]};
 `;

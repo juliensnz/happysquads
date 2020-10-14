@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
 import {Card, User} from './Card/Card';
+import theme from './theme';
 
 const parseCsv = (csv: string): User[] => {
   const lines = csv.split('\n');
@@ -18,9 +19,9 @@ const parseCsv = (csv: string): User[] => {
         }),
         {
           name: '',
-          fullname: 'Paul Chasle',
+          fullname: 'Anonymous',
           avatar: '',
-          squad: 'octopus',
+          squad: 'bee',
           position: '',
           squadMembers: [],
         }
@@ -49,11 +50,13 @@ function App() {
   const users = parseCsv(data);
   console.log(users);
   return (
-    <Container>
-      {users.map((user) => (
-        <Card key={user.name} user={user} />
-      ))}
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        {users.map((user) => (
+          <Card key={user.name} user={user} />
+        ))}
+      </Container>
+    </ThemeProvider>
   );
 }
 
