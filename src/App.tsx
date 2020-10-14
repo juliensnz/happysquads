@@ -39,7 +39,7 @@ function App() {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    fetch('./happyfamilies/data/users.csv').then(async (value) => setData(await value.text()))
+    fetch('./happysquads/data/users.csv').then(async (value) => setData(await value.text()))
   }, []);
 
   const users = parseCsv(data);

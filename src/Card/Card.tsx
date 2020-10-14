@@ -17,10 +17,9 @@ type CardProps = {
 export const Card: FC<{user: User}> = ({user}: CardProps) => (
 <Container>
   <PhotoContainer>
-    <Photo src={user.avatar}/>
+    <Photo src={user.avatar} onError={(event) => event.currentTarget.src = 'http://placekitten.com/400/400'} />
   </PhotoContainer>
   <Name>{user.fullname}</Name>
-  {JSON.stringify(user)}
 </Container>
 )
 
