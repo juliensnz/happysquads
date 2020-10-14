@@ -7,23 +7,36 @@ const parseCsv = (csv: string): User[] => {
   const lines = csv.split('\n');
   const [headers, ...data] = lines;
 
-  const userKeys = headers.split(';');
+  const userKeys = headers.split(';').filter(key => '' !== key.trim());
 
-  return data.map((user: string): User => {
+  const simpleUsers = data.map((user: string): User => {
     const userValues = user.split(';');
 
     return userKeys.reduce<User>((result, key, index) => ({
       ...result,
-      [key]: userValues[index]
+      [key.trim()]: userValues[index]
     }), {
       name: '',
+      fullname: '',
+      avatar: '',
       squad: '',
-      position: ''
+      position: '',
+      squadMembers: []
     })
+
   })
+
+  return simpleUsers.map((user: User) => ({
+    ...user,
+    squadMembers: simpleUsers.filter(({squad}) => squad === user.squad)
+      .map(({name}) => name)
+  }));
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 function App() {
   const [data, setData] = useState('');

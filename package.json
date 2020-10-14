@@ -16,6 +16,8 @@
     "styled-components": "^5.2.0",
     "typescript": "~3.7.2"
   },
+
+  "homepage": "https://juliensnz.github.io/happyfamilies",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -38,6 +40,7 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.4"
+    "@types/styled-components": "^5.1.4",
+    "prettier": "^2.1.2"
   }
 }
