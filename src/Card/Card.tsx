@@ -7,21 +7,24 @@ export type User = {
   avatar: string;
   squad: string;
   position: string;
-  squadMembers: string[]
-}
+  squadMembers: string[];
+};
 
 type CardProps = {
   user: User;
-}
+};
 
 export const Card: FC<{user: User}> = ({user}: CardProps) => (
-<Container>
-  <PhotoContainer>
-    <Photo src={user.avatar} onError={(event) => event.currentTarget.src = 'http://placekitten.com/400/400'} />
-  </PhotoContainer>
-  <Name>{user.fullname}</Name>
-</Container>
-)
+  <Container>
+    <PhotoContainer>
+      <SquadBadge>
+        <SquadImage />
+      </SquadBadge>
+      <Photo src={user.avatar} onError={(event) => (event.currentTarget.src = 'http://placekitten.com/400/400')} />
+    </PhotoContainer>
+    <Name>{user.fullname}</Name>
+  </Container>
+);
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -33,9 +36,8 @@ const Container = styled.div`
 `;
 
 const PhotoContainer = styled.div`
-  display: flex;
-  justify-content: center;
   padding: 5mm;
+  text-align: center;
 `;
 
 const Photo = styled.img`
@@ -49,8 +51,22 @@ const Photo = styled.img`
 const Name = styled.div`
   text-align: center;
   font-weight: 700;
-	color: #52267d;
+  color: #52267d;
   font-size: 5mm;
   background-color: #efeff8;
-	padding: 2mm;
+  padding: 2mm;
+`;
+
+const SquadBadge = styled.div`
+  width: 5mm;
+  height: 5mm;
+  position: absolute;
+  transform: translate(40mm, 30mm);
+  background-color: red;
+`;
+
+const SquadImage = styled.img`
+  width: 5mm;
+  height: 5mm;
+  object-fit: cover;
 `;
