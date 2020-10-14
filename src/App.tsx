@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
 import {Card, User} from './Card/Card';
 import styled from 'styled-components';
 
@@ -8,7 +7,6 @@ const parseCsv = (csv: string): User[] => {
   const [headers, ...data] = lines;
 
   const userKeys = headers.split(';').filter(key => '' !== key.trim());
-
   const simpleUsers = data.map((user: string): User => {
     const userValues = user.split(';');
 
@@ -23,7 +21,6 @@ const parseCsv = (csv: string): User[] => {
       position: '',
       squadMembers: []
     })
-
   })
 
   return simpleUsers.map((user: User) => ({
@@ -42,7 +39,7 @@ function App() {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    fetch('./data/users.csv').then(async (value) => setData(await value.text()))
+    fetch('./happyfamilies/data/users.csv').then(async (value) => setData(await value.text()))
   }, []);
 
   const users = parseCsv(data);

@@ -19,7 +19,8 @@ export const Card: FC<{user: User}> = ({user}: CardProps) => (
   <PhotoContainer>
     <Photo src={user.avatar}/>
   </PhotoContainer>
-  <Name>{user.name}</Name>
+  <Name>{user.fullname}</Name>
+  {JSON.stringify(user)}
 </Container>
 )
 
@@ -48,4 +49,9 @@ const Photo = styled.img`
 
 const Name = styled.div`
   text-align: center;
+  font-weight: 700;
+	color: #52267d;
+  font-size: 5mm;
+  background-color: #efeff8;
+	padding: 2mm;
 `;

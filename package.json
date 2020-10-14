@@ -17,7 +17,7 @@
     "typescript": "~3.7.2"
   },
 
-  "homepage": "https://juliensnz.github.io/happyfamilies",
+  "homepage": "https://juliensnz.github.io/happysquads",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
