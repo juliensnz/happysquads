@@ -16,7 +16,9 @@ const parseCsv = (csv: string): User[] => {
       ...result,
       [key]: userValues[index]
     }), {
-      name: ''
+      name: '',
+      squad: '',
+      position: ''
     })
   })
 }
