@@ -21,7 +21,7 @@ import {
 const getIcon = (squad: SquadType) => {
   switch (squad) {
     case 'octopus':
-      return <Octopus width="75%" fill="white" />;
+      return <Octopus width="70%" fill="white" />;
     case 'bees':
       return <Bee width="75%" fill="white" />;
     case 'blackhawks':
@@ -35,7 +35,7 @@ const getIcon = (squad: SquadType) => {
     case 'platypus':
       return <Platypus width="75%" fill="white" />;
     case 'quokka':
-      return <Quokka width="75%" fill="white" />;
+      return <Quokka width="70%" fill="white" />;
     case 'raccoons':
       return <Raccoon width="75%" fill="white" />;
     case 'roosters':

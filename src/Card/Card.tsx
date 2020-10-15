@@ -45,14 +45,18 @@ export const Card: FC<{
         />
       </PhotoContainer>
       <Name squad={user.squad}>{user.fullname}</Name>
-      <Description></Description>
+      <Description>{user.tagline}</Description>
       <Roles user={user} users={users} />
     </Container>
   );
 };
 
-const Description = styled.div`
+const Description = styled.q`
   flex: 1;
+  padding: 1mm 3mm;
+  font-size: 3mm;
+  text-align: center;
+  color: #424242;
 `;
 
 const Container = styled.div<{squad: SquadType}>`

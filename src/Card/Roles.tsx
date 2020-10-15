@@ -45,4 +45,5 @@ const Role = styled.div`
 
 const JobTitle = styled.div`
   font-size: 2mm;
+  color: #424242;
 `;

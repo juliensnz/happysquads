@@ -8,7 +8,7 @@ export const Quokka = (props: SVGProps<SVGSVGElement>) => (
     preserveAspectRatio="xMidYMid meet"
     {...props}
   >
-    <g transform="translate(0.000000,255.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+    <g transform="translate(0.000000,255.000000) scale(0.100000,-0.100000)" stroke="none">
       <path
         d="M924 2326 c-264 -51 -463 -177 -598 -380 -140 -212 -218 -527 -187
 -759 14 -104 63 -260 121 -385 22 -47 40 -89 40 -93 0 -5 -35 -25 -77 -45
