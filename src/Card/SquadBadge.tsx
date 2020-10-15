@@ -66,5 +66,4 @@ const Container = styled.div<{squad: SquadType}>`
   transform: translate(35mm, 25mm);
   border-radius: 10mm;
   background-color: ${(props) => props.theme.squad[props.squad]};
-  border: 1mm solid white;
 `;

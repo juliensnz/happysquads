@@ -24,6 +24,7 @@ const parseCsv = (csv: string): {[name: string]: User} => {
           squad: 'joker',
           position: '',
           icon: '',
+          tagline: '',
           squadMembers: [],
         }
       );
@@ -71,9 +72,12 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3cm;
-  -webkit-print-color-adjust: exact !important;
-  -moz-print-color-adjust: exact !important;
-  print-color-adjust: exact !important;
+  -webkit-print-color-adjust: exact;
+  -moz-print-color-adjust: exact;
+  print-color-adjust: exact;
+  @media print {
+    margin-bottom: 3cm;
+  }
 `;
 
 export default App;

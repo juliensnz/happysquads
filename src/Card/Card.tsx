@@ -26,6 +26,7 @@ export type User = {
   squad: SquadType;
   position: string;
   icon: string;
+  tagline: string;
   squadMembers: string[];
 };
 
@@ -37,7 +38,11 @@ export const Card: FC<{
     <Container squad={user.squad}>
       <PhotoContainer>
         <SquadBadge squad={user.squad} />
-        <Photo src={user.avatar} onError={(event) => (event.currentTarget.src = 'http://placekitten.com/400/400')} />
+        <Photo
+          squad={user.squad}
+          src={user.avatar}
+          onError={(event) => (event.currentTarget.src = 'http://placekitten.com/400/400')}
+        />
       </PhotoContainer>
       <Name squad={user.squad}>{user.fullname}</Name>
       <Description></Description>
@@ -65,12 +70,12 @@ const PhotoContainer = styled.div`
   text-align: center;
 `;
 
-const Photo = styled.img`
+const Photo = styled.img<{squad: SquadType}>`
   width: 40mm;
   height: 40mm;
   border-radius: 100%;
   object-fit: cover;
-  box-shadow: 1mm 1mm #dfe1f0;
+  box-shadow: 1mm 1mm ${(props) => props.theme.squad[props.squad]};
 `;
 
 const Name = styled.div<{squad: SquadType}>`

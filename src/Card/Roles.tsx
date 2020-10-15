@@ -19,10 +19,7 @@ export const Roles: FC<{
 
     return Object.values(roles).map((role) => (
       <Role>
-        <Icon>
-          {role.count}
-          {role.icon}
-        </Icon>
+        <Icon>{role.icon.repeat(role.count)}</Icon>
         <JobTitle>{role.position}</JobTitle>
       </Role>
     ));
@@ -37,7 +34,7 @@ const Icon = styled.div`
 
 const RoleContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-align: center;
 `;
 
