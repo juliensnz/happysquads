@@ -8,6 +8,7 @@ const buildUser = (userCsv: string, metaCsv: string) => {
   const meta = parseCsv(metaCsv, ';');
   console.log(meta);
   const users = simpleUsers.map((user: User) => ({
+    squad: 'joker',
     ...user,
     squad: user.squad.toLocaleLowerCase() as SquadType,
     squadMembers: simpleUsers.filter(({squad}: any) => squad === user.squad).map(({name}: any) => name),
@@ -71,9 +72,12 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3cm;
-  -webkit-print-color-adjust: exact !important;
-  -moz-print-color-adjust: exact !important;
-  print-color-adjust: exact !important;
+  -webkit-print-color-adjust: exact;
+  -moz-print-color-adjust: exact;
+  print-color-adjust: exact;
+  @media print {
+    margin-bottom: 3cm;
+  }
 `;
 
 export default App;
