@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/happysquads/static/css/main.96812ec5.chunk.css",
-    "main.js": "/happysquads/static/js/main.efce4e5a.chunk.js",
-    "main.js.map": "/happysquads/static/js/main.efce4e5a.chunk.js.map",
+    "main.js": "/happysquads/static/js/main.4a64fa5c.chunk.js",
+    "main.js.map": "/happysquads/static/js/main.4a64fa5c.chunk.js.map",
     "runtime-main.js": "/happysquads/static/js/runtime-main.14d7e40a.js",
     "runtime-main.js.map": "/happysquads/static/js/runtime-main.14d7e40a.js.map",
     "static/js/2.2331692c.chunk.js": "/happysquads/static/js/2.2331692c.chunk.js",
     "static/js/2.2331692c.chunk.js.map": "/happysquads/static/js/2.2331692c.chunk.js.map",
     "index.html": "/happysquads/index.html",
-    "precache-manifest.4c48ce1b2685c004c10b9a8ff90c7e13.js": "/happysquads/precache-manifest.4c48ce1b2685c004c10b9a8ff90c7e13.js",
+    "precache-manifest.f19aafeb5507ea3dc40715b5798a187f.js": "/happysquads/precache-manifest.f19aafeb5507ea3dc40715b5798a187f.js",
     "service-worker.js": "/happysquads/service-worker.js",
     "static/css/main.96812ec5.chunk.css.map": "/happysquads/static/css/main.96812ec5.chunk.css.map",
     "static/js/2.2331692c.chunk.js.LICENSE.txt": "/happysquads/static/js/2.2331692c.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.14d7e40a.js",
     "static/js/2.2331692c.chunk.js",
     "static/css/main.96812ec5.chunk.css",
-    "static/js/main.efce4e5a.chunk.js"
+    "static/js/main.4a64fa5c.chunk.js"
   ]
 }
