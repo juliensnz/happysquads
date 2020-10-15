@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/happysquads/static/css/main.0a92f46a.chunk.css",
-    "main.js": "/happysquads/static/js/main.6a9d3cb1.chunk.js",
-    "main.js.map": "/happysquads/static/js/main.6a9d3cb1.chunk.js.map",
+    "main.js": "/happysquads/static/js/main.50032111.chunk.js",
+    "main.js.map": "/happysquads/static/js/main.50032111.chunk.js.map",
     "runtime-main.js": "/happysquads/static/js/runtime-main.14d7e40a.js",
     "runtime-main.js.map": "/happysquads/static/js/runtime-main.14d7e40a.js.map",
-    "static/js/2.0a739d4c.chunk.js": "/happysquads/static/js/2.0a739d4c.chunk.js",
-    "static/js/2.0a739d4c.chunk.js.map": "/happysquads/static/js/2.0a739d4c.chunk.js.map",
+    "static/js/2.2331692c.chunk.js": "/happysquads/static/js/2.2331692c.chunk.js",
+    "static/js/2.2331692c.chunk.js.map": "/happysquads/static/js/2.2331692c.chunk.js.map",
     "index.html": "/happysquads/index.html",
-    "precache-manifest.c47cab9a8c5f8fc48aa4f3fb5c70df0c.js": "/happysquads/precache-manifest.c47cab9a8c5f8fc48aa4f3fb5c70df0c.js",
+    "precache-manifest.9c36855fa3cb19a9adc6d1e951fdce50.js": "/happysquads/precache-manifest.9c36855fa3cb19a9adc6d1e951fdce50.js",
     "service-worker.js": "/happysquads/service-worker.js",
     "static/css/main.0a92f46a.chunk.css.map": "/happysquads/static/css/main.0a92f46a.chunk.css.map",
-    "static/js/2.0a739d4c.chunk.js.LICENSE.txt": "/happysquads/static/js/2.0a739d4c.chunk.js.LICENSE.txt"
+    "static/js/2.2331692c.chunk.js.LICENSE.txt": "/happysquads/static/js/2.2331692c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.14d7e40a.js",
-    "static/js/2.0a739d4c.chunk.js",
+    "static/js/2.2331692c.chunk.js",
     "static/css/main.0a92f46a.chunk.css",
-    "static/js/main.6a9d3cb1.chunk.js"
+    "static/js/main.50032111.chunk.js"
   ]
 }
