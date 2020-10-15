@@ -3,20 +3,20 @@ import styled from 'styled-components';
 import {SquadBadge} from './SquadBadge';
 
 export type SquadType =
-  | 'bee'
-  | 'blackhawk'
-  | 'chipmunk'
-  | 'fox'
+  | 'bees'
+  | 'blackhawks'
+  | 'chipmunks'
+  | 'foxes'
   | 'joker'
   | 'octopus'
-  | 'panda'
+  | 'pandas'
   | 'platypus'
   | 'quokka'
-  | 'raccoon'
-  | 'rooster'
-  | 'squirrel'
-  | 'suricate'
-  | 'weasel';
+  | 'raccoons'
+  | 'roosters'
+  | 'squirrels'
+  | 'suricates'
+  | 'weasels';
 
 export type User = {
   name: string;

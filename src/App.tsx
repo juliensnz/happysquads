@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import styled, {ThemeProvider} from 'styled-components';
-import {Card, User} from './Card/Card';
+import {Card, SquadType, User} from './Card/Card';
 import theme from './theme';
 
 const parseCsv = (csv: string): User[] => {
   const lines = csv.split('\n');
   const [headers, ...data] = lines;
 
-  const userKeys = headers.split(';').filter((key) => '' !== key.trim());
+  const userKeys = headers.split(',').filter((key) => '' !== key.trim());
   const simpleUsers = data.map(
     (user: string): User => {
-      const userValues = user.split(';');
+      const userValues = user.split(',');
 
       return userKeys.reduce<User>(
         (result, key, index) => ({
@@ -19,9 +19,9 @@ const parseCsv = (csv: string): User[] => {
         }),
         {
           name: '',
-          fullname: 'Anonymous',
+          fullname: '',
           avatar: '',
-          squad: 'bee',
+          squad: 'joker',
           position: '',
           squadMembers: [],
         }
@@ -31,6 +31,7 @@ const parseCsv = (csv: string): User[] => {
 
   return simpleUsers.map((user: User) => ({
     ...user,
+    squad: user.squad.toLocaleLowerCase() as SquadType,
     squadMembers: simpleUsers.filter(({squad}) => squad === user.squad).map(({name}) => name),
   }));
 };
