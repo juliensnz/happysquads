@@ -7,10 +7,10 @@ const parseCsv = (csv: string): User[] => {
   const lines = csv.split('\n');
   const [headers, ...data] = lines;
 
-  const userKeys = headers.split(';').filter((key) => '' !== key.trim());
+  const userKeys = headers.split(',').filter((key) => '' !== key.trim());
   const simpleUsers = data.map(
     (user: string): User => {
-      const userValues = user.split(';');
+      const userValues = user.split(',');
 
       return userKeys.reduce<User>(
         (result, key, index) => ({
