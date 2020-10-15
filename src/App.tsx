@@ -42,11 +42,6 @@ const parseCsv = (csv: string): {[name: string]: User} => {
   }, {} as {[name: string]: User});
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
 function App() {
   const [users, setUsers] = useState<{[name: string]: User}>({});
 
@@ -56,15 +51,26 @@ function App() {
 
   console.log(users);
 
+  const cards = Object.values(users).map((user) => <Card key={user.name} user={user} users={users} />);
+
+  const groups = [];
+  for (let i = 0; i < cards.length; i += 9) {
+    groups.push(cards.slice(i, i + 9));
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        {Object.values(users).map((user) => (
-          <Card key={user.name} user={user} users={users} />
-        ))}
-      </Container>
+      {groups.map((group) => (
+        <Container>{group}</Container>
+      ))}
     </ThemeProvider>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3cm;
+`;
 
 export default App;
