@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "474d0d35cba7ed750272951cf603681c",
+    "revision": "24ef6072e90f4de2da6ec6b112d9ebc0",
     "url": "/happysquads/index.html"
   },
   {
-    "revision": "1ae66c842c44226bedb2",
+    "revision": "a9ae10e21709a828ce44",
     "url": "/happysquads/static/css/main.0a92f46a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/happysquads/static/js/2.2331692c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1ae66c842c44226bedb2",
-    "url": "/happysquads/static/js/main.ffd816cd.chunk.js"
+    "revision": "a9ae10e21709a828ce44",
+    "url": "/happysquads/static/js/main.85a983dc.chunk.js"
   },
   {
     "revision": "c6729fdc4aee9e1ae912",
