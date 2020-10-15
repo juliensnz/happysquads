@@ -27,7 +27,17 @@ export type User = {
   position: string;
   icon: string;
   squadMembers: string[];
+  meta: Meta;
 };
+
+export type Meta = {
+  name: string;
+  city: string;
+  team: string;
+  position: string;
+  first_day: string;
+  drank: string;
+}
 
 export const Card: FC<{
   user: User;

@@ -3,50 +3,50 @@ import styled, {ThemeProvider} from 'styled-components';
 import {Card, SquadType, User} from './Card/Card';
 import theme from './theme';
 
-const parseCsv = (csv: string): {[name: string]: User} => {
-  const lines = csv.split('\n');
-  const [headers, ...data] = lines;
-
-  const userKeys = headers.split(',').filter((key) => '' !== key.trim());
-  const simpleUsers = data.map(
-    (user: string): User => {
-      const userValues = user.split(',');
-
-      return userKeys.reduce<User>(
-        (result, key, index) => ({
-          ...result,
-          [key.trim()]: userValues[index],
-        }),
-        {
-          name: '',
-          fullname: '',
-          avatar: '',
-          squad: 'joker',
-          position: '',
-          icon: '',
-          squadMembers: [],
-        }
-      );
-    }
-  );
-
+const buildUser = (userCsv: string, metaCsv: string) => {
+  const simpleUsers = parseCsv(userCsv, ',');
+  const meta = parseCsv(metaCsv, ';');
+  console.log(meta);
   const users = simpleUsers.map((user: User) => ({
     ...user,
     squad: user.squad.toLocaleLowerCase() as SquadType,
-    squadMembers: simpleUsers.filter(({squad}) => squad === user.squad).map(({name}) => name),
+    squadMembers: simpleUsers.filter(({squad}: any) => squad === user.squad).map(({name}: any) => name),
+    meta: meta.find(({name}: any) => name === user.name),
   }));
 
-  return users.reduce((result, user) => {
+  return users.reduce((result: any, user: any) => {
     result[user.name] = user;
+
     return result;
   }, {} as {[name: string]: User});
+}
+
+const parseCsv = (csv: string, spliter: string): {[name: string]: any} => {
+  const lines = csv.split('\n');
+  const [headers, ...data] = lines;
+
+  const userKeys = headers.split(spliter).filter((key) => '' !== key.trim());
+  return data.map(
+    (line: string): any => {
+      const values = line.split(spliter);
+
+      return userKeys.reduce<any>(
+        (result, key, index) => ({
+          ...result,
+          [key.trim()]: values[index],
+        }),
+        {}
+      );
+    }
+  );
 };
 
 function App() {
   const [users, setUsers] = useState<{[name: string]: User}>({});
 
   useEffect(() => {
-    fetch('./happysquads/data/users.csv').then(async (value) => setUsers(parseCsv(await value.text())));
+    Promise.all([fetch('./happysquads/data/users.csv'), fetch('./happysquads/data/meta.csv')])
+      .then(async ([users, meta]) => setUsers(buildUser(await users.text(), await meta.text())));
   }, []);
 
   console.log(users);
@@ -60,8 +60,8 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {groups.map((group) => (
-        <Container>{group}</Container>
+      {groups.map((group, index) => (
+        <Container key={index}>{group}</Container>
       ))}
     </ThemeProvider>
   );
