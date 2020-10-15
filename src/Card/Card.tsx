@@ -24,11 +24,13 @@ export type User = {
   avatar: string;
   squad: SquadType;
   position: string;
+  icon: string;
   squadMembers: string[];
 };
 
 type CardProps = {
   user: User;
+  users: {[name: string]: User};
 };
 
 export const Card: FC<CardProps> = ({user}) => (

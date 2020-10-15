@@ -3,7 +3,7 @@ import styled, {ThemeProvider} from 'styled-components';
 import {Card, SquadType, User} from './Card/Card';
 import theme from './theme';
 
-const parseCsv = (csv: string): User[] => {
+const parseCsv = (csv: string): {[name: string]: User} => {
   const lines = csv.split('\n');
   const [headers, ...data] = lines;
 
@@ -23,17 +23,23 @@ const parseCsv = (csv: string): User[] => {
           avatar: '',
           squad: 'joker',
           position: '',
+          icon: '',
           squadMembers: [],
         }
       );
     }
   );
 
-  return simpleUsers.map((user: User) => ({
+  const users = simpleUsers.map((user: User) => ({
     ...user,
     squad: user.squad.toLocaleLowerCase() as SquadType,
     squadMembers: simpleUsers.filter(({squad}) => squad === user.squad).map(({name}) => name),
   }));
+
+  return users.reduce((result, user) => {
+    result[user.name] = user;
+    return result;
+  }, {} as {[name: string]: User});
 };
 
 const Container = styled.div`
@@ -42,19 +48,19 @@ const Container = styled.div`
 `;
 
 function App() {
-  const [data, setData] = useState('');
+  const [users, setUsers] = useState<{[name: string]: User}>({});
 
   useEffect(() => {
-    fetch('./happysquads/data/users.csv').then(async (value) => setData(await value.text()));
+    fetch('./happysquads/data/users.csv').then(async (value) => setUsers(parseCsv(await value.text())));
   }, []);
 
-  const users = parseCsv(data);
   console.log(users);
+
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        {users.map((user) => (
-          <Card key={user.name} user={user} />
+        {Object.values(users).map((user) => (
+          <Card key={user.name} user={user} users={users} />
         ))}
       </Container>
     </ThemeProvider>
