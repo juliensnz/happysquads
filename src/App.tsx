@@ -71,6 +71,9 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3cm;
+  -webkit-print-color-adjust: exact !important;
+  -moz-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 `;
 
 export default App;
