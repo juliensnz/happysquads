@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
-import {Bee} from '../SquadIcon/Bee';
-import {Octopus} from '../SquadIcon/Octopus';
+import {SquadBadge} from './SquadBadge';
 
 export type SquadType =
   | 'bee'
@@ -32,13 +31,10 @@ type CardProps = {
   user: User;
 };
 
-export const Card: FC<{user: User}> = ({user}: CardProps) => (
+export const Card: FC<CardProps> = ({user}) => (
   <Container>
     <PhotoContainer>
-      <SquadBadge squad={user.squad}>
-        {user.squad === 'octopus' && <Octopus fill="white" width="70%" />}
-        {user.squad === 'bee' && <Bee fill="black" width="70%" />}
-      </SquadBadge>
+      <SquadBadge squad={user.squad} />
       <Photo src={user.avatar} onError={(event) => (event.currentTarget.src = 'http://placekitten.com/400/400')} />
     </PhotoContainer>
     <Name>{user.fullname}</Name>
@@ -74,16 +70,4 @@ const Name = styled.div`
   font-size: 5mm;
   background-color: #efeff8;
   padding: 2mm;
-`;
-
-const SquadBadge = styled.div<{squad: SquadType}>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15mm;
-  height: 15mm;
-  position: absolute;
-  transform: translate(35mm, 25mm);
-  border-radius: 10mm;
-  background-color: ${(props) => props.theme.squad[props.squad]};
 `;
