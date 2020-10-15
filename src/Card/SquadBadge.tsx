@@ -21,33 +21,33 @@ import {
 const getIcon = (squad: SquadType) => {
   switch (squad) {
     case 'octopus':
-      return <Octopus fill="white" width="70%" />;
-    case 'bee':
-      return <Bee fill="black" width="70%" />;
-    case 'blackhawk':
-      return <Blackhawk />;
-    case 'chipmunk':
-      return <Chipmunk />;
-    case 'fox':
-      return <Fox />;
-    case 'panda':
-      return <Panda />;
+      return <Octopus width="75%" fill="white" />;
+    case 'bees':
+      return <Bee width="75%" fill="white" />;
+    case 'blackhawks':
+      return <Blackhawk width="75%" fill="white" />;
+    case 'chipmunks':
+      return <Chipmunk width="75%" fill="white" />;
+    case 'foxes':
+      return <Fox width="75%" fill="white" />;
+    case 'pandas':
+      return <Panda width="75%" fill="white" />;
     case 'platypus':
-      return <Platypus />;
+      return <Platypus width="75%" fill="white" />;
     case 'quokka':
-      return <Quokka />;
-    case 'raccoon':
-      return <Raccoon />;
-    case 'rooster':
-      return <Rooster />;
-    case 'squirrel':
-      return <Squirrel />;
-    case 'suricate':
-      return <Suricate />;
-    case 'weasel':
-      return <Weasel />;
+      return <Quokka width="75%" fill="white" />;
+    case 'raccoons':
+      return <Raccoon width="75%" fill="white" />;
+    case 'roosters':
+      return <Rooster width="75%" fill="white" />;
+    case 'squirrels':
+      return <Squirrel width="75%" fill="white" />;
+    case 'suricates':
+      return <Suricate width="75%" fill="white" />;
+    case 'weasels':
+      return <Weasel width="75%" fill="white" />;
   }
-  return <Joker />;
+  return <Joker width="75%" fill="white" />;
 };
 
 export const SquadBadge: FC<{squad: SquadType}> = ({squad}) => {
@@ -66,4 +66,5 @@ const Container = styled.div<{squad: SquadType}>`
   transform: translate(35mm, 25mm);
   border-radius: 10mm;
   background-color: ${(props) => props.theme.squad[props.squad]};
+  border: 1mm solid white;
 `;

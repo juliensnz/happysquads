@@ -2,20 +2,20 @@ import {DefaultTheme} from 'styled-components';
 
 const theme: DefaultTheme = {
   squad: {
-    bee: '#ffd600',
-    blackhawk: '#212121',
-    chipmunk: '#aeea00',
-    fox: '#ff6d00',
+    bees: '#ffd600',
+    blackhawks: '#212121',
+    chipmunks: '#aeea00',
+    foxes: '#ff6d00',
     joker: '#d50000',
     octopus: '#6200ea',
-    panda: '#00c853',
+    pandas: '#00c853',
     platypus: '#0091ea',
     quokka: '#00bfa5',
-    raccoon: '#304ffe',
-    rooster: '#c51162',
-    squirrel: '#aa00ff',
-    suricate: '#ffab00',
-    weasel: '#00b8d4',
+    raccoons: '#304ffe',
+    roosters: '#c51162',
+    squirrels: '#aa00ff',
+    suricates: '#ffab00',
+    weasels: '#00b8d4',
   },
 };
 
